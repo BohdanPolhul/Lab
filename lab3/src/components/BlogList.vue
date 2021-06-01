@@ -15,6 +15,7 @@
     </div>
 </template>
 <script>
+import URL from './URL/URL'
 import BlogItem from './BlogItem';
 export default {
     props:['blogs'],
@@ -23,7 +24,7 @@ export default {
     },
     methods:{
         removeblog(_id){
-            fetch("http://localhost:4001/app/deleteBlog/"+_id,{
+            fetch(URL+"deleteBlog/"+_id,{
                 method:'DELETE',
                 header:{'Accept':'application/json',
                 'Content-Type':'application/json'}

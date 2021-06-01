@@ -3,7 +3,8 @@
         <div :class='active?"modal_content active":"modal_content"'>
             <textarea v-on:change="ChangeMessage(message)" v-model="message" />
             <!-- <p>{{message}}</p> -->
-            <button  v-on:click="editBlog(message)">Save</button>
+            <button class="buttonClose"  v-on:click="closeEdit()">Close</button>
+            <button class="buttonSave"  v-on:click="editBlog(message)">Save</button>
         </div>
     </div>
 </template>
@@ -12,11 +13,12 @@ export default {
     props:['message'],
     methods:{
         editBlog(message){
-            this.$emit('edit-close',false,message)
+            this.$emit('edit',false,message)
             // this.$emit('save-change')
         },
-        ChangeMessage(){
+        closeEdit(){
             // alert(mess)
+            this.$emit('edit-close',false)
         }
     }
 }
@@ -44,7 +46,7 @@ export default {
     padding: 20px;
     border-radius: 12px;
     background-color: white;
-    height: 600px;
+    height: 200px;
     width: 600px;
     transform: scale(0.5);
     transition: 0.4s all;
@@ -52,7 +54,17 @@ export default {
 .modal_content.active{
     transform: scale(1);
 }
-.button{
-    pointer-events: none;
+.buttonSave{
+    width:50%;
+    height:100px;
+}
+.buttonClose{
+    width:50%;
+    height:100px;
+}
+textarea{
+    width: 100%;
+    height:100px;
+    font-size: 28px;
 }
 </style>

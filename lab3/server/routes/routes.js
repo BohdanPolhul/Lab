@@ -14,7 +14,6 @@ const {adminRegister,
         deleteBlog,
         UpDateBlog
     } = require('../utils/data');
-                //Admin
 router.post('/adminRegistration', async(request,response)=>{
     await adminRegister(request,"admin", response);
 })
@@ -27,7 +26,6 @@ router.get('/getAdmin/:id', async function(req,res){
 router.get('/getAdmin', async function(req,res){
     await getAdmin(req,"admin",res);
 })
-                //Creat_Blog
 router.post('/postBlog', async function(request,response){
     await postBlog(request,"blog",response);
 })
@@ -42,3 +40,63 @@ router.put('/UpDateBlog/:id', async function(req,res){
 })
 
 module.exports = router
+/**
+ * @swagger
+ * /getBlog:
+ *   get:
+ *     description: Get all books
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */
+/**
+ * @swagger
+ * /getAdminId:
+ *   get:
+ *     description: Get all books
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */
+/**
+ * @swagger
+ * /adminAuth:
+ *   post:
+ *     description: Get all books
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */
+/**
+ * @swagger
+ * /getBlog:
+ *   get:
+ *     description: Get all books
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */
+/**
+ * @swagger
+ * /deleteBlog:
+ *   delete:
+ *     description: Get all books
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */
+/**
+ * @swagger
+ * /UpDateBlog:
+ *   update:
+ *     description: Get all books
+ *     responses:
+ *       200:
+ *         description: Success
+ * 
+ */

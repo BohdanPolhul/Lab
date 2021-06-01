@@ -1,14 +1,13 @@
 <template>
   <div >
     <!-- <router-link to="/login" class="admin">Admin</router-link> -->
-    <button >Admin</button>
     <h1>Blog application</h1>
     <hr>
     <addBlog @add-blog="addBlog"/>
     <Loader v-if="loading"/>
     <BlogList  v-else-if="blogs.length" v-bind:blogs="blogs" @edit-blog="editbBlog"  @remove-blog="removeBlog"/>
     <p v-else>No message...</p>
-    <Edit v-if="edit" @edit-close="closeEditBloge" v-bind:message="message"/>
+    <Edit v-if="edit" @edit-close="closeBloge" @edit="closeEditBloge" v-bind:message="message"/>
   </div>
 </template>
 <script>
@@ -16,6 +15,7 @@ import BlogList from '../BlogList'
 import addBlog from '../AddBlog'
 import Loader from '../Loader/Loader'
 import Edit from './Edit'
+import URL from '../URL/URL'
 export default {
   data(){
         return {
@@ -29,7 +29,7 @@ export default {
   computed:{
   },
   mounted(){
-      fetch('http://localhost:4001/app/getBlog')
+      fetch(URL+'getBlog')
       .then(response => response.json())
       .then(json=>{
           this.blogs=json.blog
@@ -52,7 +52,9 @@ export default {
       this.blogs.push(blogs)
     },
     editbBlog(id,message){
-      this.message=message
+      if(message){
+        this.message=message
+      }
       this.id=id
       this.edit=true
     },
@@ -78,6 +80,10 @@ export default {
       })
       this.edit=bool
     },
+    closeBloge(bool){
+      this.edit=bool
+      this.message
+    }
   }
 }
 </script>

@@ -12,9 +12,11 @@
                 
             </div>
             <div className="col-8 mr-auto ml-3 bg-info">
-                <p v-if="isAuth" v-on:click="Delete(blog._id)" className="post-content"> &#10006;</p>  
-                <button v-if="isAuth" v-on:click="Edit(blog._id,blog.message)">edit</button>
+                <div className="button-delete"><button  v-on:click="Delete(blog._id)" > &#10006;</button> </div>
+                <div className="button-edit"><button v-on:click="Edit(blog._id,blog.message)" >edit</button></div>
             </div>
+            
+            
         </li>
     </div>
 </template>
@@ -54,5 +56,12 @@ export default {
  img{
      width:20%
  }
- 
+.button-delete{
+    border-radius: 100%;
+    width:10%;
+}
+.button-edit{
+    border-radius: 100%;
+    color:red
+}
 </style>

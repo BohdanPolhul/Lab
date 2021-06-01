@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import URL from './URL/'
+import URL from './URL/URL'
 export default {
     data(){
         return{
