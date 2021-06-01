@@ -1,15 +1,17 @@
 {
-  "name": "conway",
+  "name": "lifegame",
   "version": "1.0.0",
-  "description": "conway's game of life in node",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Corey weiner",
+  "author": "Bohdan Polhul",
   "license": "MIT",
   "dependencies": {
+    "blessed": "^0.1.81",
     "cli-color": "^1.4.0",
+    "colors": "^1.4.0",
     "commander": "^2.20.3",
     "promptly": "^0.2.1",
     "underscore": "^1.12.0"
