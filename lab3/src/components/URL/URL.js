@@ -1,2 +1,2 @@
-const URL = 'http://localhost:4001/app/'
+const URL = 'http://localhost:4001/'
 export default URL

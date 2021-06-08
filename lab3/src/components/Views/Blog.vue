@@ -1,7 +1,9 @@
 <template>
   <div >
     <!-- <router-link to="/login" class="admin">Admin</router-link> -->
-    <h1>Blog application</h1>
+    <Avtor/>
+    <hr>
+    <Instructions/>
     <hr>
     <addBlog @add-blog="addBlog"/>
     <Loader v-if="loading"/>
@@ -11,6 +13,8 @@
   </div>
 </template>
 <script>
+import Avtor from '../avtor/avtor.vue'
+import Instructions from '../Instructions/Instructions.vue'
 import BlogList from '../BlogList'
 import addBlog from '../AddBlog'
 import Loader from '../Loader/Loader'
@@ -39,6 +43,8 @@ export default {
       
   },
   components: {
+   Avtor,
+   Instructions,
    BlogList,
    addBlog,
    Loader,
@@ -61,7 +67,7 @@ export default {
     closeEditBloge(bool,mes){
        this.blogs = this.blogs.map(t=>{
         if(t._id===this.id){
-          fetch("http://localhost:4001/app/UpDateBlog/"+this.id,{
+          fetch(URL+'UpDateBlog/'+this.id,{
             method:'PUT',
             headers:{
             'Accept':'application/json',

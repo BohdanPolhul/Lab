@@ -1,7 +1,7 @@
 <template>
     <div >
-        <input type="text" v-model="message">
-        <button v-on:click="onSubmit" type="submit">Create</button>
+        <input class="inp" type="text" v-model="message">
+        <button class="btn_add" v-on:click="onSubmit" type="submit">Create</button>
     </div>
 </template>
 <script>
@@ -31,6 +31,7 @@ export default {
                     })
                     .then(res=>{
                             res.json()
+                            // localStorage.setItem(newTodo._id,this.message)
                         }
                     )
                 this.$emit('add-blog',newTodo)
@@ -41,3 +42,13 @@ export default {
     }
 }
 </script>
+<style>
+.inp{
+    width:70%;
+    height:50px;
+}
+.btn_add{
+    width:20%;
+    height:50px;
+}
+</style>
